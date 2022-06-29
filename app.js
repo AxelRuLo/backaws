@@ -14,7 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.get("/", (req, res) => {
-    return res.status(200).send("todo ok")
+    return res.status(200).send("que csm mineria :3")
 })
 app.get("/prueba", (req, res) => {
     return res.status(200).send("esto debe de ser la llamada a api de vetcitas")
