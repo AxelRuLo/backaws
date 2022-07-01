@@ -18,6 +18,7 @@ async function getUsers() {
     const userSearched = await User.findAll();
     return userSearched
 }
+
 async function deleteUser(id) {
     const deletedUser = await User.destroy({
         where: {
@@ -26,13 +27,22 @@ async function deleteUser(id) {
     });
     return deletedUser
 }
+async function modifiedUsuario(user) {
+    resultado = await User.update({ password: user.password }, {
+        where: {
+            email: user.email
+        }
+    })
+        .then(result => result)
+        .catch(error => false);
+    return resultado
+}
 
 
 controlerUser = {}
 controlerUser.create = createUser
 controlerUser.getAll = getUsers
 controlerUser.delete = deleteUser
-// controlerUser.login = login
-// controlerUser.change = changePassword
+controlerUser.modified = modifiedUsuario
 
 module.exports = { controlerUser }
