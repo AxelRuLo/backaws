@@ -14,10 +14,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        userprofile_iduserprofile: {
-            type: Sequelize.INTEGER,
-            allowNull: false
-        },
         
     }, { freezeTableName: true, timestamps: false });
 
