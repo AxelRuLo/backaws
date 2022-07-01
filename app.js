@@ -15,7 +15,8 @@ app.put("/modifiedUsuario", async (req, res) => {
     return res.status(200).send("esto debe de ser la llamada a api")
 })
 app.delete("/eliminarUsuario/:id", async (req, res) => {
-    return res.status(200).send("esto debe de ser la llamada a api")
+    const resultado = await userControler.controlerUser.delete(req.params.id)
+    return res.status(200).send({resultado})
 })
 app.post("/addUsuario", async (req, res) => {
     var email = req.body.email

@@ -1,12 +1,10 @@
-const db  = require("../models/conection")
+const db = require("../models/conection")
 const User = db.db.user
 
 
 
 
 async function createUser(newUser) {
-
-
     isUserCreated = await User.create({
         email: newUser.email,
         password: newUser.password,
@@ -20,11 +18,20 @@ async function getUsers() {
     const userSearched = await User.findAll();
     return userSearched
 }
+async function deleteUser(id) {
+    const deletedUser = await User.destroy({
+        where: {
+            iduser: id
+        }
+    });
+    return deletedUser
+}
 
 
 controlerUser = {}
 controlerUser.create = createUser
 controlerUser.getAll = getUsers
+controlerUser.delete = deleteUser
 // controlerUser.login = login
 // controlerUser.change = changePassword
 
