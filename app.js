@@ -5,7 +5,7 @@ var database = require("./models/conection")
 const port = process.env.PORT || 3000
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true    }))
 
 app.get("/getUsuarios", async (req, res) => {
     const resultado = await userControler.controlerUser.getAll();
